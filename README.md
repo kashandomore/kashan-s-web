@@ -1,4 +1,4 @@
-# TailwindCSS Standalone project
+# TailwindCSS
 
 
 
