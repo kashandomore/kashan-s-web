@@ -1,0 +1,230 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* layer base preset */
+/* following when compiled will be inserted at the end of base styles */
+@layer base {
+  /* @font-face {
+    font-family: Oswald;
+    src: url(@/assets/fonts/Oswald/Oswald-Bold.ttf) format("​truetype​");
+  } */
+
+  body {
+    @apply z-0 bg-gray-50;
+  }
+  h1 {
+    @apply text-5xl;
+  }
+}
+/* .error {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+} */
+
+@layer components {
+  /* .primary_button {
+    @apply bg-gradient-to-r from-primary  to-gradient text-white p-3 rounded-3xl px-8;
+  } */
+}
+
+@layer utilities {
+  .form-panel {
+    @apply md:mt-0 md:col-span-2 bg-white shadow sm:rounded-md px-4 py-5 sm:p-6;
+  }
+  .form-simple {
+    @apply mt-1 focus:ring-primary focus:border-primary block w-full shadow-sm sm:text-sm border-gray-300 rounded-md;
+  }
+  .form-underline {
+    @apply m-0 block w-full px-2 border-0 border-b-2 border-gray-200 focus:ring-0 focus:border-blue-300;
+  }
+  .form-gray {
+    @apply mt-1 block w-full rounded-md bg-gray-200  border-transparent focus:border-gray-500 focus:bg-white;
+  }
+  .form-dropdown {
+    @apply mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-primary                 focus:border-indigo-500 sm:text-sm;
+  }
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  background: #011f4b;
+  overflow: hidden;
+}
+
+canvas {
+  display: block;
+  margin-top: -900px;
+}
+
+#particles-js {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 50%;
+  z-index: -1;
+}
+
+.cursor {
+  width: 20px;
+  height: 20px;
+  border: 1px solid white;
+  border-radius: 50%;
+  position: absolute;
+  transition-duration: 200ms;
+  transition-timing-function: ease-out;
+  animation: cursorAnim 0.5s infinite alternate;
+  pointer-events: none;
+}
+
+.cursor::after {
+  content: "";
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  border: 8px solid gray;
+  border-radius: 50%;
+  opacity: 0.5;
+  top: -8px;
+  left: -8px;
+  animation: cursorAnim2 0.5s infinite alternate;
+}
+
+@keyframes cursorAnim {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(0.7);
+  }
+}
+
+@keyframes cursorAnim2 {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(0.4);
+  }
+}
+
+@keyframes cursorAnim3 {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(3);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+
+.expand {
+  animation: cursorAnim3 0.5s forwards;
+  border: 1px solid #b3cde0;
+}
+
+p {
+  color: white;
+  font-family: "arial";
+  text-align: center;
+  margin-top: 50px;
+  font-size: 1.4em;
+
+  a {
+    color: teal;
+  }
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: 0.25s ease;
+}
+
+ul {
+  display: flex;
+  flex-wrap: wrap;
+}
+ul li {
+  margin-left: 0.75em;
+  margin-right: 0.75em;
+}
+ul:hover a {
+  color: #03396c;
+}
+ul:hover a:hover {
+  color: #b3cde0;
+  box-shadow: 0 2px 0 0 currentcolor;
+}
+
+/* text svg */
+
+.wrapper {
+  width: 100%;
+}
+
+svg {
+  font-family: "Russo One", sans-serif;
+  width: 100%;
+  height: 100%;
+}
+svg text {
+  animation: stroke 5s infinite alternate;
+  stroke-width: 2;
+  stroke: #365fa0;
+  font-size: 100px;
+}
+
+@media screen and (max-width: 1200px) {
+  svg text {
+    font-size: 80px;
+  }
+}
+@media screen and (max-width: 900px) {
+  svg text {
+    font-size: 60px;
+  }
+}
+@media screen and (max-width: 700px) {
+  svg text {
+    font-size: 40px;
+  }
+}
+@media screen and (max-width: 400px) {
+  svg text {
+    font-size: 25px;
+  }
+}
+
+@keyframes stroke {
+  0% {
+    fill: rgba(72, 138, 204, 0);
+    stroke: #fff;
+    stroke-dashoffset: 25%;
+    stroke-dasharray: 0 50%;
+    stroke-width: 2;
+  }
+  70% {
+    fill: rgba(72, 138, 204, 0);
+    stroke: #fff;
+  }
+  80% {
+    fill: rgba(72, 138, 204, 0);
+    stroke: #fff;
+    stroke-width: 3;
+  }
+  100% {
+    fill: rgba(72, 138, 204, 1);
+    stroke: #fff;
+    stroke-dashoffset: -25%;
+    stroke-dasharray: 50% 0;
+    stroke-width: 0;
+  }
+}
